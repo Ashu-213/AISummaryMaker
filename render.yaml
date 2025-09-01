@@ -1,15 +1,27 @@
-# Render.com deployment configuration
-# This file tells Render how to deploy your app
+services:
+  - type: web
+    name: ai-summary-backend
+    env: python
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: python app.py
+    envVars:
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: ALLOWED_ORIGINS
+        sync: false
+      - key: PORT
+        value: "10000"
+      - key: HOST
+        value: "0.0.0.0"
+      - key: DEBUG
+        value: "False"
 
-# Backend Service Configuration
-# Service Type: Web Service
-# Environment: Python
-# Build Command: chmod +x build.sh && ./build.sh
-# Start Command: chmod +x start.sh && ./start.sh
-
-# Environment Variables to set in Render Dashboard:
-# GEMINI_API_KEY=your_actual_gemini_api_key
-# ALLOWED_ORIGINS=https://your-frontend-url.onrender.com
-# PORT=10000
-# HOST=0.0.0.0
-# DEBUG=False
+  - type: static
+    name: ai-summary-frontend
+    rootDir: frontend
+    buildCommand: npm ci && npm run build
+    staticPublishPath: build
+    envVars:
+      - key: REACT_APP_API_BASE_URL
+        sync: false
