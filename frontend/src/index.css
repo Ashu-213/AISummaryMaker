@@ -1,0 +1,145 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@layer base {
+  body {
+    @apply bg-gradient-to-br from-blue-50 via-white to-purple-50 text-gray-800;
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+  }
+  
+  * {
+    @apply scroll-smooth;
+  }
+  
+  /* Fix text selection highlighting */
+  ::selection {
+    background-color: rgba(59, 130, 246, 0.3);
+    color: inherit;
+  }
+  
+  ::-moz-selection {
+    background-color: rgba(59, 130, 246, 0.3);
+    color: inherit;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold py-3 px-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none;
+  }
+  
+  .btn-secondary {
+    @apply bg-white hover:bg-gray-50 text-gray-700 font-medium py-3 px-6 rounded-xl shadow-md hover:shadow-lg border border-gray-200 transition-all duration-200 transform hover:-translate-y-0.5;
+  }
+  
+  .btn-outline {
+    @apply border-2 border-blue-500 text-blue-600 hover:bg-blue-500 hover:text-white font-medium py-2 px-4 rounded-lg transition-all duration-200;
+  }
+  
+  .card {
+    @apply bg-white rounded-2xl shadow-xl p-8 border border-gray-100 backdrop-blur-sm hover:shadow-2xl transition-all duration-300;
+  }
+  
+  .card-highlight {
+    @apply bg-gradient-to-br from-white to-blue-50 rounded-2xl shadow-xl p-8 border border-blue-200 backdrop-blur-sm;
+  }
+  
+  .input-field {
+    @apply w-full p-4 border-2 border-gray-200 rounded-xl focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500 outline-none transition-all duration-200 bg-white/80 backdrop-blur-sm;
+  }
+  
+  .stats-card {
+    @apply bg-gradient-to-br from-white to-gray-50 p-6 rounded-xl border border-gray-200 text-center shadow-md hover:shadow-lg transition-all duration-200;
+  }
+  
+  .keyword-tag {
+    @apply inline-block bg-gradient-to-r from-blue-100 to-purple-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium m-1 border border-blue-200;
+  }
+  
+  .key-point {
+    @apply bg-gradient-to-r from-green-50 to-emerald-50 p-4 rounded-lg border-l-4 border-green-500 mb-3 shadow-sm;
+  }
+  
+  .summary-section {
+    @apply bg-gradient-to-br from-blue-50 to-indigo-50 p-6 rounded-xl border border-blue-200 shadow-sm;
+  }
+  
+  .floating-action {
+    @apply fixed bottom-6 right-6 bg-gradient-to-r from-blue-600 to-purple-600 text-white p-4 rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:-translate-y-2 z-50;
+  }
+  
+  .glass-effect {
+    @apply bg-white/80 backdrop-blur-md border border-white/20 shadow-xl;
+  }
+  
+  .gradient-text {
+    @apply bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent font-bold;
+    -webkit-user-select: text;
+    user-select: text;
+  }
+  
+  /* Fix selection issue for gradient text */
+  .gradient-text::selection {
+    background-color: rgba(59, 130, 246, 0.3);
+    color: #1d4ed8;
+    -webkit-text-fill-color: #1d4ed8;
+  }
+  
+  .gradient-text::-moz-selection {
+    background-color: rgba(59, 130, 246, 0.3);
+    color: #1d4ed8;
+  }
+  
+  /* Prevent logo from interfering with text selection */
+  .logo-container {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    pointer-events: none;
+  }
+  
+  .logo-container * {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+  }
+  
+  /* Ensure emojis are always visible */
+  .logo-container {
+    color: inherit !important;
+    -webkit-text-fill-color: initial !important;
+    background: none !important;
+  }
+  
+  .pulse-glow {
+    animation: pulse-glow 2s infinite;
+  }
+  
+  @keyframes pulse-glow {
+    0%, 100% {
+      box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+    }
+    50% {
+      box-shadow: 0 0 30px rgba(59, 130, 246, 0.5);
+    }
+  }
+  
+  .slide-in {
+    animation: slideIn 0.5s ease-out;
+  }
+  
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}

@@ -1,0 +1,15 @@
+# Render.com deployment configuration
+# This file tells Render how to deploy your app
+
+# Backend Service Configuration
+# Service Type: Web Service
+# Environment: Python
+# Build Command: chmod +x build.sh && ./build.sh
+# Start Command: chmod +x start.sh && ./start.sh
+
+# Environment Variables to set in Render Dashboard:
+# GEMINI_API_KEY=your_actual_gemini_api_key
+# ALLOWED_ORIGINS=https://your-frontend-url.onrender.com
+# PORT=10000
+# HOST=0.0.0.0
+# DEBUG=False
